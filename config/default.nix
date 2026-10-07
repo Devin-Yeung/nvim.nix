@@ -2,6 +2,7 @@
   imports = [
     ./options.nix
     ./theme.nix
+    ./conform.nix
     ./mappings.nix
     ./lsp
     ./surround.nix
