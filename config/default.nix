@@ -7,5 +7,6 @@
     ./oil.nix
     ./mini.nix
     ./fff.nix
+    ./leap.nix
   ];
 }
