@@ -3,7 +3,7 @@
     ./options.nix
     ./theme.nix
     ./mappings.nix
-    ./lsp.nix
+    ./lsp
     ./surround.nix
     ./oil.nix
     ./mini.nix
