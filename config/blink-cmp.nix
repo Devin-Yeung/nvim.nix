@@ -5,6 +5,7 @@
     snippets.preset = "luasnip";
     cmdline.enabled = true;
     appearance.nerd_font_variant = "normal";
+    appearance.kind_icons.Snippet = "‹›";
     fuzzy.implementation = "prefer_rust";
     # Nix supplies the fuzzy matcher; don't download binaries at runtime.
     fuzzy.prebuilt_binaries.download = false;
@@ -44,48 +45,48 @@
     };
 
     completion.ghost_text.enabled = false;
-    completion.menu.border = "rounded";
-    completion.menu.min_width = 28;
+    completion.menu.border = "single";
+    completion.menu.min_width = 20;
     completion.menu.max_height = 8;
     completion.menu.draw = {
       # Keep the menu edge at the caret, rather than aligning the label.
       align_to = "cursor";
       padding = 1;
-      gap = 2;
+      gap = 1;
       columns = [
+        [ "label" ]
         [ "kind_icon" ]
-        [
-          "label"
-          "label_description"
-        ]
-        [ "source_name" ]
+        [ "kind" ]
       ];
       components.label.width.max = 40;
       components.label.width.fill = true;
-      components.label_description.width.max = 20;
-      components.source_name.width.max = 8;
+      # Let the selection foreground override the icon color, too.
+      components.kind_icon.highlight = lib.nixvim.mkRaw /* lua */ ''
+        function(ctx) return ctx.kind_hl end
+      '';
+      components.kind.highlight = "BlinkCmpLabel";
     };
 
     completion.documentation.auto_show = true;
     completion.documentation.auto_show_delay_ms = 200;
     completion.documentation.window = {
-      border = "rounded";
-      max_width = 64;
+      border = "single";
+      max_width = 80;
       max_height = 16;
       desired_min_width = 32;
       desired_min_height = 4;
-      # Stack docs with the menu when possible; use sides only as a fallback.
+      # Prefer docs beside the menu, matching the reference layout.
       direction_priority.menu_south = [
-        "s"
-        "n"
         "e"
         "w"
+        "s"
+        "n"
       ];
       direction_priority.menu_north = [
-        "n"
-        "s"
         "e"
         "w"
+        "n"
+        "s"
       ];
     };
   };

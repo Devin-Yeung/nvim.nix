@@ -1,7 +1,7 @@
 -- Source: https://github.com/NvChad/base46
 -- Theme: onedark; transparency: false; no user overrides.
 -- Integrations: defaults, devicons, git, lsp, syntax, treesitter, leap, blink
--- Blink-only override: upstream transparency rules; editor transparency stays false.
+-- Blink-only overrides: opaque dark floats and a blue selection; editor theme unchanged.
 -- Original theme credits: https://github.com/one-dark
 -- License notices: base46-LICENSE and base16-LICENSE in this directory.
 
@@ -105,11 +105,9 @@ vim.api.nvim_set_hl(0, "Added", { fg = "#98c379" })
 vim.api.nvim_set_hl(0, "Boolean", { fg = "#d19a66" })
 
 -- Blink integration: NvChad/base46@7df2bd89295db00b649cbc49bdf6fe5a1cc5df3b
--- Generated from integrations/blink.lua with OneDark, default style, and glassy.lua overrides.
--- Only Blink floats use transparency; the editor theme remains unchanged.
--- Explicit foregrounds keep transparent groups from being considered cleared by Blink's defaults.
-vim.api.nvim_set_hl(0, "BlinkCmpDoc", { bg = "NONE", fg = "#abb2bf" })
-vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { bg = "none", fg = "#42464e" })
+-- Based on integrations/blink.lua with OneDark; float colors match the completion reference.
+vim.api.nvim_set_hl(0, "BlinkCmpDoc", { bg = "#1e222a", fg = "#abb2bf" })
+vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { bg = "#1e222a", fg = "#565c64" })
 vim.api.nvim_set_hl(0, "BlinkCmpDocCursorLine", { bg = "#282c34" })
 vim.api.nvim_set_hl(0, "BlinkCmpDocSeparator", { fg = "#42464e" })
 vim.api.nvim_set_hl(0, "BlinkCmpGhostText", { fg = "#565c64" })
@@ -150,9 +148,9 @@ vim.api.nvim_set_hl(0, "BlinkCmpLabelDeprecated", { fg = "#e06c75", strikethroug
 vim.api.nvim_set_hl(0, "BlinkCmpLabelDescription", { fg = "#6f737b" })
 vim.api.nvim_set_hl(0, "BlinkCmpLabelDetail", { fg = "#6f737b" })
 vim.api.nvim_set_hl(0, "BlinkCmpLabelMatch", { bold = true, fg = "#61afef" })
-vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "NONE", fg = "#abb2bf" })
-vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "none", fg = "#42464e" })
-vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bold = true, link = "PmenuSel" })
+vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "#1e222a", fg = "#abb2bf" })
+vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "#1e222a", fg = "#565c64" })
+vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#61afef", fg = "#1e222a" })
 vim.api.nvim_set_hl(0, "BlinkCmpScrollBarGutter", { bg = "#252931" })
 vim.api.nvim_set_hl(0, "BlinkCmpScrollBarThumb", { bg = "#42464e" })
 vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelp", { bg = "NONE", fg = "#abb2bf" })
