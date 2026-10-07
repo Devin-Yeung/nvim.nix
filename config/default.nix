@@ -4,5 +4,6 @@
     ./mappings.nix
     ./lsp.nix
     ./surround.nix
+    ./oil.nix
   ];
 }
