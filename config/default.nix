@@ -12,6 +12,7 @@
     ./treesitter.nix
     ./treesitter-textobjects.nix
     ./fff.nix
+    ./hunk.nix
     ./leap.nix
     ./blink-cmp.nix
     ./luasnip.nix
