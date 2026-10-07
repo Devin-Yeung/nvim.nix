@@ -1,19 +1,5 @@
+{ config, ... }:
 {
-  config,
-  lib,
-  ...
-}:
-{
-  plugins.mini-ai = {
-    enable = true;
-    settings.custom_textobjects.f = lib.nixvim.mkRaw ''
-      require("mini.ai").gen_spec.treesitter {
-        a = "@function.outer",
-        i = "@function.inner",
-      }
-    '';
-  };
-
   # mini.ai's function objects need parsers and @function textobject queries.
   # Nix installs them; no lazy.nvim or runtime parser downloads are needed.
   plugins.treesitter = {
@@ -38,5 +24,4 @@
       jsonnet
     ];
   };
-  plugins.treesitter-textobjects.enable = true;
 }

@@ -1,6 +1,5 @@
 {
   imports = [
-    ./completion.nix
     ./diagnostics.nix
     ./keymaps.nix
     ./servers.nix

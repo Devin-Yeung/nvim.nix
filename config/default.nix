@@ -6,8 +6,16 @@
     ./lsp
     ./surround.nix
     ./oil.nix
-    ./mini.nix
+    ./mini-ai.nix
+    ./mini-icons.nix
+    ./treesitter.nix
+    ./treesitter-textobjects.nix
     ./fff.nix
     ./leap.nix
+    ./blink-cmp.nix
+    ./luasnip.nix
+    ./friendly-snippets.nix
+    ./lazydev.nix
+    ./nvim-autopairs.nix
   ];
 }
