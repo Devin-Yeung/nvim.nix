@@ -18,6 +18,7 @@
     ./friendly-snippets.nix
     ./lazydev.nix
     ./nvim-autopairs.nix
+    ./noice.nix
     ./vim-suda.nix
   ];
 }
