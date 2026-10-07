@@ -1,7 +1,7 @@
 {
   plugins.conform-nvim = {
     enable = true;
-    autoInstall.enable = true;
+    autoInstall.enable = false;
 
     settings = {
       formatters_by_ft = {
@@ -11,9 +11,7 @@
         cpp = [ "clang_format" ];
         rust = [ "rustfmt" ];
         go = [ "gofmt" ];
-        ocaml = [ "ocamlformat" ];
         python = [ "ruff_format" ];
-        r = [ "styler" ];
         jsonnet = [ "jsonnetfmt" ];
         sh = [ "shfmt" ];
         bash = [ "shfmt" ];

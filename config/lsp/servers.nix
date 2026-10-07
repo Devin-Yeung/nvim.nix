@@ -25,23 +25,20 @@
         ];
       };
     };
-    clangd.enable = true;
-    rust_analyzer.enable = true;
-    nixd.enable = true;
-    ocamllsp = {
+    clangd = {
       enable = true;
-      config.settings = {
-        inlayHints.enable = true;
-        codelens.enable = true;
-      };
+      # avoid bringing in llvm closure
+      package = null;
     };
+    rust_analyzer = {
+      enable = true;
+      # prefer rustup's rust_analyzer
+      package = null;
+    };
+    nixd.enable = true;
     tombi.enable = true;
     yamlls.enable = true;
     marksman.enable = true;
-    r_language_server = {
-      enable = true;
-      package = pkgs.rWrapper.override { packages = [ pkgs.rPackages.languageserver ]; };
-    };
     basedpyright.enable = true;
     gopls.enable = true;
     jsonnet_ls.enable = true;
