@@ -8,6 +8,7 @@ let
   system = pkgs.stdenv.hostPlatform.system;
   nvim = inputs.nixvim.legacyPackages.${system}.makeNixvim {
     imports = [ ./config ];
+    nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
     # Nixvim uses its own nixpkgs instance, separate from devenv's allow_unfree.
     nixpkgs.config.allowUnfree = true;
   };
