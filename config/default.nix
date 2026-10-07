@@ -6,5 +6,6 @@
     ./surround.nix
     ./oil.nix
     ./mini.nix
+    ./fff.nix
   ];
 }
