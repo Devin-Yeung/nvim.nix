@@ -1,6 +1,7 @@
 {
   imports = [
     ./options.nix
+    ./theme.nix
     ./mappings.nix
     ./lsp.nix
     ./surround.nix
