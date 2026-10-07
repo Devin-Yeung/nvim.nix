@@ -1,6 +1,7 @@
 -- Source: https://github.com/NvChad/base46
 -- Theme: onedark; transparency: false; no user overrides.
--- Integrations: defaults, devicons, git, lsp, syntax, treesitter, leap
+-- Integrations: defaults, devicons, git, lsp, syntax, treesitter, leap, blink
+-- Blink-only override: upstream transparency rules; editor transparency stays false.
 -- Original theme credits: https://github.com/one-dark
 -- License notices: base46-LICENSE and base16-LICENSE in this directory.
 
@@ -102,6 +103,63 @@ vim.api.nvim_set_hl(0, "@variable.member.key", { fg = "#e06c75" })
 vim.api.nvim_set_hl(0, "@variable.parameter", { fg = "#e06c75" })
 vim.api.nvim_set_hl(0, "Added", { fg = "#98c379" })
 vim.api.nvim_set_hl(0, "Boolean", { fg = "#d19a66" })
+
+-- Blink integration: NvChad/base46@7df2bd89295db00b649cbc49bdf6fe5a1cc5df3b
+-- Generated from integrations/blink.lua with OneDark, default style, and glassy.lua overrides.
+-- Only Blink floats use transparency; the editor theme remains unchanged.
+-- Explicit foregrounds keep transparent groups from being considered cleared by Blink's defaults.
+vim.api.nvim_set_hl(0, "BlinkCmpDoc", { bg = "NONE", fg = "#abb2bf" })
+vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { bg = "none", fg = "#42464e" })
+vim.api.nvim_set_hl(0, "BlinkCmpDocCursorLine", { bg = "#282c34" })
+vim.api.nvim_set_hl(0, "BlinkCmpDocSeparator", { fg = "#42464e" })
+vim.api.nvim_set_hl(0, "BlinkCmpGhostText", { fg = "#565c64" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindClass", { fg = "#519ABA" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindCodeium", { fg = "#7eca9c" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindColor", { fg = "#abb2bf" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindConstant", { fg = "#d19a66" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindConstructor", { fg = "#56b6c2" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindCopilot", { fg = "#98c379" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindEnum", { fg = "#61afef" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindEnumMember", { fg = "#de98fd" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindEvent", { fg = "#e7c787" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindField", { fg = "#e06c75" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindFile", { fg = "#c8ccd4" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindFolder", { fg = "#c8ccd4" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindFunction", { fg = "#61afef" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindIdentifier", { fg = "#e06c75" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindInterface", { fg = "#98c379" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindKeyword", { fg = "#c678dd" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindMethod", { fg = "#61afef" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindModule", { fg = "#e5c07b" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindOperator", { fg = "#abb2bf" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindProperty", { fg = "#e06c75" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindReference", { fg = "#abb2bf" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindSnippet", { fg = "#e06c75" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindStruct", { fg = "#c678dd" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindStructure", { fg = "#c678dd" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindSuperMaven", { fg = "#e7c787" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindTabNine", { fg = "#DE8C92" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindText", { fg = "#98c379" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindType", { fg = "#e5c07b" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindTypeParameter", { fg = "#e06c75" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindUnit", { fg = "#c678dd" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindValue", { fg = "#a3b8ef" })
+vim.api.nvim_set_hl(0, "BlinkCmpKindVariable", { fg = "#abb2bf" })
+vim.api.nvim_set_hl(0, "BlinkCmpLabel", { fg = "#abb2bf" })
+vim.api.nvim_set_hl(0, "BlinkCmpLabelDeprecated", { fg = "#e06c75", strikethrough = true })
+vim.api.nvim_set_hl(0, "BlinkCmpLabelDescription", { fg = "#6f737b" })
+vim.api.nvim_set_hl(0, "BlinkCmpLabelDetail", { fg = "#6f737b" })
+vim.api.nvim_set_hl(0, "BlinkCmpLabelMatch", { bold = true, fg = "#61afef" })
+vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "NONE", fg = "#abb2bf" })
+vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "none", fg = "#42464e" })
+vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bold = true, link = "PmenuSel" })
+vim.api.nvim_set_hl(0, "BlinkCmpScrollBarGutter", { bg = "#252931" })
+vim.api.nvim_set_hl(0, "BlinkCmpScrollBarThumb", { bg = "#42464e" })
+vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelp", { bg = "NONE", fg = "#abb2bf" })
+vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelpActiveParameter", { bold = true, fg = "#61afef" })
+vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelpBorder", { fg = "#565c64" })
+vim.api.nvim_set_hl(0, "BlinkCmpSource", { fg = "#565c64" })
+
 vim.api.nvim_set_hl(0, "Changed", { fg = "#e7c787" })
 vim.api.nvim_set_hl(0, "Character", { fg = "#e06c75" })
 vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#252931" })

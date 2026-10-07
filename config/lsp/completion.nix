@@ -57,10 +57,58 @@
 
         completion = {
           ghost_text.enabled = false;
+          menu = {
+            border = "rounded";
+            min_width = 28;
+            max_height = 8;
+            draw = {
+              # Keep the menu edge at the caret, rather than aligning the label.
+              align_to = "cursor";
+              padding = 1;
+              gap = 2;
+              columns = [
+                [ "kind_icon" ]
+                [
+                  "label"
+                  "label_description"
+                ]
+                [ "source_name" ]
+              ];
+              components = {
+                label.width = {
+                  max = 40;
+                  fill = true;
+                };
+                label_description.width.max = 20;
+                source_name.width.max = 8;
+              };
+            };
+          };
           documentation = {
             auto_show = true;
             auto_show_delay_ms = 200;
-            window.border = "single";
+            window = {
+              border = "rounded";
+              max_width = 64;
+              max_height = 16;
+              desired_min_width = 32;
+              desired_min_height = 4;
+              # Stack docs with the menu when possible; use sides only as a fallback.
+              direction_priority = {
+                menu_south = [
+                  "s"
+                  "n"
+                  "e"
+                  "w"
+                ];
+                menu_north = [
+                  "n"
+                  "s"
+                  "e"
+                  "w"
+                ];
+              };
+            };
           };
         };
       };
