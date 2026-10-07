@@ -10,13 +10,13 @@
     {
       mode = "n";
       key = "<leader><leader>";
-      action = lib.nixvim.mkRaw ''function() require("fff").find_files() end'';
+      action = lib.nixvim.mkRaw /* lua */ ''function() require("fff").find_files() end'';
       options.desc = "Find files (fff)";
     }
     {
       mode = "n";
       key = "<leader>fw";
-      action = lib.nixvim.mkRaw ''function() require("fff").live_grep() end'';
+      action = lib.nixvim.mkRaw /* lua */ ''function() require("fff").live_grep() end'';
       options.desc = "Live grep (fff)";
     }
   ];

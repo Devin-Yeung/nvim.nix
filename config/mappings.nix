@@ -86,7 +86,7 @@
       mode = "n";
       key = "<Esc>";
       options.desc = "Close LSP docs, clear search highlights and multicursors";
-      action = lib.nixvim.mkRaw ''
+      action = lib.nixvim.mkRaw /* lua */ ''
         function()
           local ok, docs = pcall(require, "noice.lsp.docs")
           if ok and docs._messages then
@@ -115,7 +115,7 @@
       key = "<C-n>";
       options.desc = "Select next occurrence (multicursor)";
       # The source uses an experimental Neovim API, not a multicursor plugin.
-      action = lib.nixvim.mkRaw ''
+      action = lib.nixvim.mkRaw /* lua */ ''
         function()
           if vim.api.nvim_mcursor == nil then
             vim.notify("Native multicursors require a Neovim build with nvim_mcursor", vim.log.levels.WARN)
@@ -131,7 +131,7 @@
       mode = "x";
       key = "<C-n>";
       options.desc = "Place cursor on each line of selection (multicursor)";
-      action = lib.nixvim.mkRaw ''
+      action = lib.nixvim.mkRaw /* lua */ ''
         function()
           if vim.api.nvim_mcursor == nil then
             vim.notify("Native multicursors require a Neovim build with nvim_mcursor", vim.log.levels.WARN)

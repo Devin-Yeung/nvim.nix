@@ -20,7 +20,7 @@
       config.settings.Lua = {
         runtime.version = "LuaJIT";
         workspace.library = [
-          (lib.nixvim.mkRaw ''vim.fn.expand "$VIMRUNTIME/lua"'')
+          (lib.nixvim.mkRaw /* lua */ ''vim.fn.expand "$VIMRUNTIME/lua"'')
           "\${3rd}/luv/library"
         ];
       };

@@ -12,7 +12,7 @@
     {
       event = "InsertLeave";
       desc = "Unlink active LuaSnip snippets when leaving insert mode";
-      callback = lib.nixvim.mkRaw ''
+      callback = lib.nixvim.mkRaw /* lua */ ''
         function()
           local luasnip = require("luasnip")
           if luasnip.session.current_nodes[vim.api.nvim_get_current_buf()] and not luasnip.session.jump_active then

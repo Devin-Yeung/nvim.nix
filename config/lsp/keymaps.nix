@@ -26,19 +26,19 @@
     {
       mode = "n";
       key = "<leader>qf";
-      action = lib.nixvim.mkRaw "vim.lsp.buf.code_action";
+      action = lib.nixvim.mkRaw /* lua */ "vim.lsp.buf.code_action";
       options.desc = "Quick fix";
     }
     {
       mode = "n";
       key = "<leader>f";
-      action = lib.nixvim.mkRaw ''function() vim.diagnostic.open_float { border = "rounded" } end'';
+      action = lib.nixvim.mkRaw /* lua */ ''function() vim.diagnostic.open_float { border = "rounded" } end'';
       options.desc = "Floating diagnostic";
     }
     {
       mode = "n";
       key = "gK";
-      action = lib.nixvim.mkRaw "vim.lsp.buf.signature_help";
+      action = lib.nixvim.mkRaw /* lua */ "vim.lsp.buf.signature_help";
       options.desc = "Signature help";
     }
   ];

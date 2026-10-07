@@ -9,7 +9,7 @@
       skip_confirm_for_simple_edits = true;
       view_options = {
         show_hidden = true;
-        is_always_hidden = lib.nixvim.mkRaw ''
+        is_always_hidden = lib.nixvim.mkRaw /* lua */ ''
           function(name, _)
             return name == ".." or name == ".git"
           end
