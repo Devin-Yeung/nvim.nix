@@ -1,33 +1,37 @@
 # nvim.nix
 
-A batteries-included [Nixvim](https://github.com/nix-community/nixvim) module
+A batteries-included [Nixvim](https://github.com/nix-community/nixvim) configuration.
 
-## Use
+The flake locks the configuration together with its Nixvim, Nixpkgs, and Neovim-nightly-overlay revisions.
+Consumers should import the exported module rather than separately pinning Nixvim.
 
-Add this repository and Nixvim as flake inputs (pin the revision in `flake.lock`):
+## Home Manager
+
+Add this repository as a flake input, without overriding its inputs:
 
 ```nix
 {
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nvim-config = {
-      url = "github:Devin-Yeung/nvim.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-
-  outputs = { nixpkgs, nixvim, nvim-config, ... }:
-    let
-      system = "x86_64-linux"; # or builtins.currentSystem
-    in {
-      packages.${system}.default = nixvim.legacyPackages.${system}.makeNixvim {
-        imports = [ "${nvim-config}/config" ];
-        nixpkgs.config.allowUnfree = true;
-      };
-    };
+  inputs.nvim-config.url = "github:Devin-Yeung/nvim.nix";
 }
+```
+
+Import the module in a Home Manager configuration:
+
+```nix
+{
+  imports = [ inputs.nvim-config.homeModules.default ];
+
+  programs.nixvim = {
+    enable = true;
+    defaultEditor = true;
+  };
+}
+```
+
+## Standalone build
+
+Build the locked configuration directly:
+
+```sh
+nix build
 ```
