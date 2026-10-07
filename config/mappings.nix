@@ -97,6 +97,11 @@
               end
             end
           end
+          -- Noice is optional here; native Nixvim still needs to close builtin docs.
+          local preview = vim.b.lsp_floating_preview
+          if preview and vim.api.nvim_win_is_valid(preview) then
+            vim.api.nvim_win_close(preview, true)
+          end
           if vim.api.nvim_mcursor ~= nil then
             local ns = vim.api.nvim_create_namespace "nvim.multicursor"
             vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
