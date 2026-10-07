@@ -22,6 +22,7 @@
       toml
       rust
       jsonnet
+      go
     ];
   };
 }
