@@ -21,5 +21,6 @@
     ./nvim-autopairs.nix
     ./noice.nix
     ./vim-suda.nix
+    ./clipboard.nix
   ];
 }
