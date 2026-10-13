@@ -6,6 +6,7 @@
     ./mappings.nix
     ./lsp
     ./surround.nix
+    ./indent-blankline.nix
     ./oil.nix
     ./bufferline.nix
     ./lualine.nix
