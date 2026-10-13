@@ -49,8 +49,8 @@
     completion.menu.min_width = 20;
     completion.menu.max_height = 8;
     completion.menu.draw = {
-      # Keep the menu edge at the caret, rather than aligning the label.
-      align_to = "cursor";
+      # Anchor the menu to the start of the typed keyword (label column)
+      align_to = "label";
       padding = 1;
       gap = 1;
       columns = [
