@@ -8,6 +8,7 @@
     ./surround.nix
     ./oil.nix
     ./bufferline.nix
+    ./lualine.nix
     ./mini-ai.nix
     ./mini-icons.nix
     ./treesitter.nix
