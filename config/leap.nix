@@ -1,15 +1,16 @@
 {
-  plugins.leap = {
-    enable = true;
-    settings = {
-      labels = "sfjklqeioawrndctuyuighthpxzmb";
-      safe_labels = "";
-    };
-  };
+  plugins.leap.enable = true;
 
-  # vim-surround installs visual S during plugin loading. Register afterward
-  # so Leap keeps S in all three modes, as in the source's lazy.nvim keys.
-  keymapsOnEvents.VimEnter = [
+  # upstream bug: `plugins.leap.settings` never reaches the engine; set `leap.opts` directly.
+  plugins.leap.luaConfig.post = ''
+    local opts = require("leap.opts").default
+    opts.labels = "sfjklqeioawrndctuyghpxzmb"
+    opts.safe_labels = ""
+    opts.offset_labels = true
+  '';
+
+  # Visual-mode `S` belongs to vim-surround, so Leap's `S` is limited to normal and operator-pending modes.
+  keymaps = [
     {
       mode = [
         "n"
@@ -23,7 +24,6 @@
     {
       mode = [
         "n"
-        "x"
         "o"
       ];
       key = "S";
