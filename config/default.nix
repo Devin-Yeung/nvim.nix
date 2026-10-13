@@ -7,6 +7,7 @@
     ./lsp
     ./surround.nix
     ./oil.nix
+    ./bufferline.nix
     ./mini-ai.nix
     ./mini-icons.nix
     ./treesitter.nix
