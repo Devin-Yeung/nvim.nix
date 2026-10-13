@@ -4,7 +4,45 @@
     settings = {
       options = {
         globalstatus = true;
-        theme = "auto";
+        # Colors copied from NvChad's base46 statusline (St_* groups)
+        theme =
+          let
+            body = {
+              bg = "#22262e";
+              fg = "#abb2bf";
+            };
+            mode = bg: {
+              a = {
+                inherit bg;
+                fg = "#1e222a";
+                gui = "bold";
+              };
+              b = body;
+              c = body;
+            };
+          in
+          {
+            normal = mode "#81a1c1";
+            insert = mode "#c882e7";
+            visual = mode "#a3b8ef";
+            replace = mode "#fca2aa";
+            command = mode "#98c379";
+            terminal = mode "#98c379";
+            inactive = {
+              a = {
+                bg = "#1b1f27";
+                fg = "#6f737b";
+              };
+              b = {
+                bg = "#1b1f27";
+                fg = "#6f737b";
+              };
+              c = {
+                bg = "#1b1f27";
+                fg = "#6f737b";
+              };
+            };
+          };
         icons_enabled = true;
         component_separators = {
           left = "│";
