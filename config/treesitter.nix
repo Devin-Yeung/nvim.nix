@@ -8,6 +8,9 @@
     grammarPackages =
       with config.plugins.treesitter.package.builtGrammars;
       [
+        bash
+        zsh
+        nu
         c
         lua
         markdown
