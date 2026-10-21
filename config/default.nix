@@ -26,5 +26,6 @@
     ./noice.nix
     ./vim-suda.nix
     ./clipboard.nix
+    ./actions-preview.nix
   ];
 }

@@ -26,7 +26,7 @@
     {
       mode = "n";
       key = "<leader>qf";
-      action = lib.nixvim.mkRaw /* lua */ "vim.lsp.buf.code_action";
+      action = lib.nixvim.mkRaw /* lua */ ''function() require("actions-preview").code_actions() end'';
       options.desc = "Quick fix";
     }
     {
