@@ -14,6 +14,7 @@
     ./mini-icons.nix
     ./treesitter.nix
     ./treesitter-textobjects.nix
+    ./render-markdown.nix
     ./fff.nix
     ./hunk.nix
     ./leap.nix
