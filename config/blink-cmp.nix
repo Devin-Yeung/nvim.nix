@@ -31,8 +31,10 @@
         "select_next"
         "fallback"
       ];
-      # Tab navigates snippets or inline suggestions, never accepts the menu.
+      # Tab accepts the highlighted menu item when the menu is open; otherwise
+      # it falls through to snippet jumps, inline suggestions, then the literal Tab.
       "<Tab>" = [
+        "accept"
         "snippet_forward"
         (lib.nixvim.mkRaw /* lua */ ''
           function()
@@ -44,6 +46,8 @@
       "<S-Tab>" = false;
     };
 
+    # Always highlight the first item so Tab/Enter accept it without arrow keys.
+    completion.list.selection.preselect = true;
     completion.ghost_text.enabled = false;
     completion.menu.border = "single";
     completion.menu.min_width = 20;
