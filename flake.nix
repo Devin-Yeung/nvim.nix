@@ -1,6 +1,17 @@
 {
   description = "A batteries-included Nixvim configuration";
 
+  nixConfig = {
+    extra-substituters = [
+      "https://devenv.cachix.org"
+      "https://cachix.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
+      "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="
+    ];
+  };
+
   inputs = {
     # Nixvim main and the nightly Neovim overlay both track this package set.
     nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.*.tar.gz";
@@ -15,46 +26,26 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    devenv.url = "github:cachix/devenv/v2.4.0";
   };
 
   outputs =
-    {
-      nixpkgs,
-      nixvim,
-      neovim-nightly-overlay,
-      flake-utils,
+    inputs@{
+      flake-parts,
       ...
     }:
-    let
-      nixvimConfig = {
-        imports = [ ./config ];
-
-        # Keep the config, Nixvim module, and its package set in one lock file.
-        nixpkgs = {
-          source = nixpkgs;
-          overlays = [ neovim-nightly-overlay.overlays.default ];
-          config.allowUnfree = true;
-        };
-      };
-
-      nixvimModule = {
-        imports = [ nixvim.homeModules.nixvim ];
-        programs.nixvim = nixvimConfig;
-      };
-    in
-    (flake-utils.lib.eachSystem
-      [
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
         "aarch64-darwin"
         "aarch64-linux"
         "x86_64-linux"
-      ]
-      (system: {
-        # Enables `nix build .` as a standalone configuration smoke test.
-        packages.default = nixvim.legacyPackages.${system}.makeNixvim nixvimConfig;
-      })
-    )
-    // {
-      homeModules.default = nixvimModule;
+      ];
+
+      imports = [
+        ./parts/packages.nix
+        ./parts/devshells.nix
+        ./parts/home-modules.nix
+      ];
     };
 }
