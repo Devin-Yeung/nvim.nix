@@ -43,6 +43,7 @@
       ];
 
       imports = [
+        ./parts/nixvim-module.nix
         ./parts/packages.nix
         ./parts/devshells.nix
         ./parts/home-modules.nix
