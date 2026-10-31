@@ -3,12 +3,6 @@
   lsp.keymaps = [
     {
       mode = "n";
-      key = "gd";
-      lspBufAction = "definition";
-      options.desc = "Go to definition";
-    }
-    {
-      mode = "n";
       key = "gD";
       lspBufAction = "declaration";
       options.desc = "Go to declaration";

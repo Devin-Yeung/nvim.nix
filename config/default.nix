@@ -16,6 +16,7 @@
     ./treesitter-textobjects.nix
     ./render-markdown.nix
     ./fff.nix
+    ./telescope.nix
     ./hunk.nix
     ./leap.nix
     ./blink-cmp.nix
