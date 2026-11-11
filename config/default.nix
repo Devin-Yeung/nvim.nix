@@ -18,6 +18,7 @@
     ./fff.nix
     ./telescope.nix
     ./hunk.nix
+    ./jj-conflict.nix
     ./leap.nix
     ./blink-cmp.nix
     ./luasnip.nix

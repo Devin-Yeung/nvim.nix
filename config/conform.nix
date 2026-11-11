@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   plugins.conform-nvim = {
     enable = true;
@@ -30,10 +31,16 @@
       };
 
       # Use a dedicated formatter where configured; otherwise defer to the LSP.
-      format_on_save = {
-        timeout_ms = 1000;
-        lsp_format = "fallback";
-      };
+      # Returning nil skips formatting: rustfmt and friends cannot parse a
+      # buffer that still contains jj conflict markers.
+      format_on_save = lib.nixvim.mkRaw /* lua */ ''
+        function(bufnr)
+          if require("jj-conflict").conflict_count(bufnr) > 0 then
+            return nil
+          end
+          return { timeout_ms = 1000, lsp_format = "fallback" }
+        end
+      '';
     };
   };
 }
