@@ -24,7 +24,7 @@
     signcolumn = "yes";
     splitbelow = true;
     splitright = true;
-    timeoutlen = 400;
+    timeoutlen = 250;
     undofile = true;
     updatetime = 250;
     whichwrap = "b,s,<,>,[,],h,l";
